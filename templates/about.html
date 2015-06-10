@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block nav %} 
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="{{ url_for ('about') }}">About</a></li>
+          <li><a href="{{ url_for ('contact') }}">Contact</a></li>
+        </ul>
+{% endblock %}
+{% block first %}
+<h2 style="text-align:center">About</h2>
+<div class="jumbotron"> 
+<div class="about-wrapper">
+<img src="{{ url_for('static', filename='images/dave.jpg') }}"></div>
+<p class="lead">Dave Cha is a NYC native and huge cat lover. He takes his coffee black, boulders, hikes, and moonlights as a Park Director in NYC. His cat <a href="http://i.imgur.com/lE6S3r6.jpg">Athena</a> spent most of her time sleeping while he worked on this.</p><br>
+<p class="lead">sRS is powered by <a href="https://www.python.org">Python</a>, <a href="http://flask.pocoo.org">Flask</a>, <a href="http://getbootstrap.com">Bootstrap</a>, and <a href="https://praw.readthedocs.org">PRAW</a>.</p>
+<p>Got questions? Go <a href="{{ url_for ('contact') }}">here</a>.</p>
+</div>
+{% endblock %}

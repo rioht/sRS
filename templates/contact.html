@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block nav %} 
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="{{ url_for ('about') }}">About</a></li>
+          <li class="active"><a href="{{ url_for ('contact') }}">Contact</a></li>
+        </ul>
+{% endblock %}
+{% block first %}
+	<h2 style="text-align:center">Contact</h2>
+	{% if success %}
+		<h3 style="text-align:center">Thank you for your note! I'll get back to you ASAP!</h3>
+
+	{% else %}
+
+	{% for message in get_flashed_messages() %}
+		<div class="flash">{{ message }}</div>
+	{% endfor %}
+
+	{% for message in form.name.errors %}
+		<div class="flash">{{ message }}</div>
+	{% endfor %}
+
+	{% for message in form.email.errors %}
+		<div class="flash">{{ message }}</div>
+	{% endfor %}
+
+	{% for message in form.subject.errors %}
+		<div class="flash">{{ message }}</div>
+	{% endfor %}
+
+	{% for message in form.message.errors %}
+		<div class="flash">{{ message }}</div>
+	{% endfor %}
+
+<form action="{{ url_for('contact') }}" method=post>
+{{ form.hidden_tag() }}
+
+{{ form.name.label }}
+{{ form.name }}
+
+{{ form.email.label }}
+{{ form.email }}
+
+{{ form.subject.label }}
+{{ form.subject }}
+
+{{ form.message.label }}
+{{ form.message }}
+
+{{ form.submit }}
+	</form>
+
+	{% endif %}
+{% endblock %}

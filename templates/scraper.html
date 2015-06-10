@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block nav %} 
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="{{ url_for ('about') }}">About</a></li>
+          <li><a href="{{ url_for ('contact') }}">Contact</a></li>
+        </ul>
+{% endblock %}
+{% block first %}
+<h2 style="text-align:center">Scraper!</h2>
+<p>{{ srs }}</p>
+
+{% endblock %}

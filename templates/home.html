@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block nav %} 
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="{{ url_for ('about') }}">About</a></li>
+          <li><a href="{{ url_for ('contact') }}">Contact</a></li>
+        </ul>
+{% endblock %}
+{% block first %}
+<h2 style="text-align:center">sRS</h2>
+	<div class="jumbotron">        
+        <div class="home-wrapper">
+        <p class="lead">Enter a subreddit:</p>
+
+<form action="{{ url_for('home') }}" method=post>
+
+
+{% for message in get_flashed_messages() %}
+<div class="flash">{{ message }}</div>
+{% endfor %}
+
+{{ form.hidden_tag() }}
+{{ form.srs_input }}
+
+<div class="center-div">{{ form.submit }}
+	</form>
+	</div>
+    </div>
+    </div>
+{% endblock %}
